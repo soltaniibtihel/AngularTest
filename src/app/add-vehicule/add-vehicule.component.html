@@ -1,0 +1,33 @@
+<form [formGroup]="vehiculeForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Matricule:</label>
+    <input formControlName="Matricule">
+    <div *ngIf="vehiculeForm.get('Matricule')?.errors?.['required'] && vehiculeForm.get('Matricule')?.touched">
+      La Matricule est obligatoire
+    </div>
+  </div>
+
+  <div>
+    <label>Description:</label>
+    <textarea formControlName="Description"></textarea>
+    <div *ngIf="vehiculeForm.get('Description')?.errors?.['required'] && vehiculeForm.get('Description')?.touched">
+      La description est obligatoire
+    </div>
+    <div *ngIf="vehiculeForm.get('Description')?.errors?.['minlength'] && vehiculeForm.get('Description')?.touched">
+      La description doit contenir au moins 3 caractères
+    </div>
+  </div>
+
+  <div>
+    <label>Marque:</label>
+    <input formControlName="Marque">
+    <div *ngIf="vehiculeForm.get('Marque')?.errors?.['required'] && vehiculeForm.get('Marque')?.touched">
+      Le nom de la marque est obligatoire
+    </div>
+    <div *ngIf="vehiculeForm.get('Marque')?.errors?.['pattern'] && vehiculeForm.get('Marque')?.touched">
+      Le nom de la marque doit commencer par une majuscule
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="!vehiculeForm.valid">Ajouter</button>
+</form>

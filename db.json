@@ -1,0 +1,12 @@
+{
+  "vehicules": [
+    {
+      "id": 477,
+      "Matricule": "56477654",
+      "Description": "fghjgf",
+      "Marque": "Gkhgfjhgf",
+      "Disponible": true,
+      "nbrInteresse": 0
+    }
+  ]
+}

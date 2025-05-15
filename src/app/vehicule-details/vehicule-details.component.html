@@ -1,0 +1,42 @@
+<div class="vehicule-detail-container" *ngIf="vehicule">
+  <h2>Détails du Véhicule</h2>
+  
+  <div class="detail-card">
+    <div class="detail-row">
+      <span class="detail-label">Matricule:</span>
+      <span class="detail-value">{{ vehicule.Matricule }}</span>
+    </div>
+    
+    <div class="detail-row">
+      <span class="detail-label">Marque:</span>
+      <span class="detail-value">{{ vehicule.Marque }}</span>
+    </div>
+    
+    <div class="detail-row">
+      <span class="detail-label">Description:</span>
+      <span class="detail-value">{{ vehicule.Description }}</span>
+    </div>
+    
+    <div class="detail-row">
+      <span class="detail-label">Disponibilité:</span>
+      <span class="detail-value">
+        <span [class.available]="vehicule.Disponible" [class.unavailable]="!vehicule.Disponible">
+          {{ vehicule.Disponible ? 'Disponible' : 'Non disponible' }}
+        </span>
+      </span>
+    </div>
+    
+    <div class="detail-row">
+      <span class="detail-label">Nombre d'intéressés:</span>
+      <span class="detail-value">{{ vehicule.nbrInteresse }}</span>
+    </div>
+    
+    <div class="action-buttons">
+      <button routerLink="/vehicules" class="back-button">Retour à la liste</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!vehicule" >
+  <p>vehicule n'existe pas</p>
+</div>

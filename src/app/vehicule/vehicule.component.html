@@ -1,0 +1,25 @@
+<!-- vehicle.component.html -->
+<h2>Liste des Véhicules</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Matricule</th>
+      <th>Marque</th>
+      <th>Description</th>
+      <th>Disponible</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let vehicle of vehicles">
+      <td>{{ vehicle.Matricule }}</td>
+      <td>{{ vehicle.Marque }}</td>
+      <td>{{ vehicle.Description }}</td>
+      <td>{{ vehicle.Disponible ? 'Oui' : 'Non' }}</td>
+<td>
+  <a [routerLink]="['/vehicules', vehicle.id]">Détails</a>
+  <button (click)="deleteVehicule(vehicle.id)">Supprimer</button>
+</td>
+    </tr>
+  </tbody>
+</table>
